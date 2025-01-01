@@ -1,10 +1,9 @@
 import { Request, Response } from "express";
-import { Blog } from "@prisma/client";
 import prisma from "../../prisma/client/prisma-client";
 
 export default async function addBlog(req: Request, res: Response) {
   const username = req.params.username;
-  const blog: Blog = req.body;
+  const blog = req.body;
   try {
     const user = await prisma.user.findFirst({
       where: {
